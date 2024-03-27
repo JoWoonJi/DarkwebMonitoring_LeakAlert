@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkweb Monitoring & Leak Alerts</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .data-container {
+            margin-top: 20px;
+        }
+        .card-header {
+            font-size: 1.25rem;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center my-5">Darkweb Monitoring & Leak Alerts</h1>
+        </div>
+    </div>
+    <div class="row data-container">
+        <!-- Leakbase Data -->
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Leakbase</h2>
+            {% for post in leakbase_posts %}
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        {{ post['title'] }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Upload Time: {{ post['upload_time'] }}</p>
+                        <p class="card-text">Author: {{ post['author'] }}</p>
+                        <a href="{{ post['url'] }}" class="btn btn-primary" target="_blank">Link to Post</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Lockbit Data -->
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Lockbit</h2>
+            {% for post in lockbit_posts %}
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        {{ post['title'] }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ post['post_text'] }}</p>
+                        <p class="card-text">Upload Time: {{ post['upload_time'] }}</p>
+                        <p class="card-text">Days: {{ post['days'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

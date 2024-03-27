@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ransomware Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            color: #ff6666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #ff6666;
+            color: white;
+        }
+        tr:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jabjo - RANSOMWARE MONITORING</h1>
+        <table>
+            <tr>
+                <th>Site</th>
+                <th>Description</th>
+                <th>Days Active</th>
+                <th>Tag</th>
+            </tr>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.site }}</td>
+                <td>{{ post.description }}</td>
+                <td>{{ post.days_active }}</td>
+                <td>{{ post.tag }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
